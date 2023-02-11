@@ -16,9 +16,11 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class ConfigurarSeguridad{
 	
+
 	@Bean                                                             
 	public UserDetailsService userDetailsService() throws Exception {
 		
+		//Creacion de usuarios que tendran acceso al sistema - LOGIN POR DEFAULT SPRING
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
 		manager.createUser(users.username("Alberto").password("alberto123").roles("USER").build());
@@ -36,16 +38,35 @@ public class ConfigurarSeguridad{
 			)
 			.httpBasic(Customizer.withDefaults());
 		return http.build();
-	}
+	}*/
 
 	@Bean                                                            
-	public SecurityFilterChain formLoginFilterChain(HttpSecurity http) throws Exception {
-		http
+	public SecurityFilterChain formularioLogin(HttpSecurity http) throws Exception {
+		
+		http.
+		authorizeHttpRequests().
+		anyRequest().authenticated()
+		.and()
+		.formLogin().loginPage("/formLogin")
+		.loginProcessingUrl("/autenticarUsuario")
+		.permitAll();
+		
+		/*http
 			.authorizeHttpRequests(authorize -> authorize
 				.anyRequest().authenticated()
 			)
 			.formLogin(Customizer.withDefaults());
+		return http.build();*/
+		
+		/*http
+		.authorizeHttpRequests(authorize -> authorize
+			.anyRequest().authenticated()
+		)
+		.formLogin().loginPage("/formLogin")
+		.loginProcessingUrl("/autenticarUsuario")
+		.permitAll();*/
+		
 		return http.build();
-	}*/
+	}
 }
 
