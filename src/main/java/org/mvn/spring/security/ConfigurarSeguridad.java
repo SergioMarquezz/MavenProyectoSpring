@@ -18,15 +18,15 @@ public class ConfigurarSeguridad{
 	
 	@Bean                                                             
 	public UserDetailsService userDetailsService() throws Exception {
-		// ensure the passwords are encoded properly
+		
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-		manager.createUser(users.username("user").password("password").roles("USER").build());
-		manager.createUser(users.username("admin").password("password").roles("USER","ADMIN").build());
+		manager.createUser(users.username("Alberto").password("alberto123").roles("USER").build());
+		manager.createUser(users.username("Sergio").password("serch123").roles("USER","ADMIN").build());
 		return manager;
 	}
 
-	@Bean
+	/*@Bean
 	@Order(1)                                                        
 	public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
 		http
@@ -46,6 +46,6 @@ public class ConfigurarSeguridad{
 			)
 			.formLogin(Customizer.withDefaults());
 		return http.build();
-	}
+	}*/
 }
 
