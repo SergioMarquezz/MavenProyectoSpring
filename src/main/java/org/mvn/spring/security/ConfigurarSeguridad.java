@@ -27,6 +27,7 @@ public class ConfigurarSeguridad{
 		manager.createUser(users.username("Sergio").password("serch123").roles("USER","ADMIN").build());
 		return manager;
 	}
+	
 
 	/*@Bean
 	@Order(1)                                                        
@@ -40,18 +41,10 @@ public class ConfigurarSeguridad{
 		return http.build();
 	}*/
 
-	@Bean                                                            
+	/*@Bean                                                            
 	public SecurityFilterChain formularioLogin(HttpSecurity http) throws Exception {
-		
-		http.
-		authorizeHttpRequests().
-		anyRequest().authenticated()
-		.and()
-		.formLogin().loginPage("/formLogin")
-		.loginProcessingUrl("/autenticarUsuario")
-		.permitAll();
-		
-		/*http
+			
+		http
 			.authorizeHttpRequests(authorize -> authorize
 				.anyRequest().authenticated()
 			)
@@ -64,9 +57,9 @@ public class ConfigurarSeguridad{
 		)
 		.formLogin().loginPage("/formLogin")
 		.loginProcessingUrl("/autenticarUsuario")
-		.permitAll();*/
+		.permitAll();
 		
 		return http.build();
-	}
+	}*/
 }
 

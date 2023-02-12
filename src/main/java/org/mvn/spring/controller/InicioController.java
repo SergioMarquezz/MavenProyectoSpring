@@ -13,9 +13,4 @@ public class InicioController {
 		return "inicio";
 	}
 	
-	@GetMapping("/formLogin")
-	public String showLoginPropio() {
-		
-		return "login-propio";
-	}
 }
