@@ -33,11 +33,11 @@ public class ConfigurarSeguridad{
 	@Order(1)                                                        
 	public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
 		http
-			.securityMatcher("/api/**")                                   
+			                               
 			.authorizeHttpRequests(authorize -> authorize
 				.anyRequest().hasRole("ADMIN")
 			)
-			.httpBasic(Customizer.withDefaults());
+			.httpBasic().and().logout().logoutSuccessUrl("/salir");
 		return http.build();
 	}*/
 
@@ -45,13 +45,6 @@ public class ConfigurarSeguridad{
 	public SecurityFilterChain formularioLogin(HttpSecurity http) throws Exception {
 			
 		http
-			.authorizeHttpRequests(authorize -> authorize
-				.anyRequest().authenticated()
-			)
-			.formLogin(Customizer.withDefaults());
-		return http.build();*/
-		
-		/*http
 		.authorizeHttpRequests(authorize -> authorize
 			.anyRequest().authenticated()
 		)
