@@ -1,9 +1,9 @@
 # MavenProyectoSpring
-#### Proyecto creado con la tecnologia Maven utilizando Spring Framework aplicando el patrón de diseño MVC
+#### Proyecto creado con la tecnologia Maven utilizando Spring Framework 6.0 aplicando el patrón de diseño MVC
 
 ---
 
-#####Creación del Proyecto
+##### Creación del Proyecto
 
 Para este proyecto se utiliza el IDE Spring Tools Suite. Una vez abierto el IDE iremos a la opción File - New - Maven Project, es importante elejir el Maven Archetype Webapp versión 1.4 para proceder a crear el proyecto (Img. 1.0).
 
@@ -25,3 +25,7 @@ Al finalizar dicha configuración el proyecto sera creado y aparecera en el espa
 
 *Imagen 1.2*
 ![Workspace Spring Tools](/imgGit/EspacioProyectos.png "Espacio de trabajo Spring Tools")
+
+##### Configuración de dependencias Maven
+
+Es posible que el proyecto al ser creado tenga algunos errores lo que aparecera con una equis en rojo, para poder dar solución a esto, es necesario descagar e instalar la dependencia **Jakarta Servlet**
